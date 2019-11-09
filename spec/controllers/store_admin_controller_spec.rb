@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'pry'
 
 RSpec.describe StoreAdminController, type: :controller do
   include Capybara::DSL
@@ -24,6 +25,7 @@ RSpec.describe StoreAdminController, type: :controller do
       expect(response).to render_template("layouts/order_administration")
 
       expect(page.find("h1").text).to eq("Flatiron Widgets: Open Orders")
+      # binding.pry
       expect(page.find("h2").text).to eq("Welcome to Flatiron Open Orders")
       expect(page.all("ol li").size).to be >= 1
     end
